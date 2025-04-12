@@ -24,7 +24,7 @@ if uploaded_file is not None:
     # Read and display image
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
-    st.image(image, channels="BGR", caption="Uploaded Image", use_column_width=True)
+    st.image(image, channels="BGR", caption="Uploaded Image", use_container_width=True)
 
     # Preprocess image
     image_resized = cv2.resize(image, IMG_SIZE)
