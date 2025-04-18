@@ -9,10 +9,16 @@ from tensorflow.keras.preprocessing.image import img_to_array
 # ✅ Set model file path
 model_path = "stroke_classification_model.h5"
 
-# ✅ Download model from Google Drive if not exists
-if not os.path.exists(model_path):
-    url = "https://drive.google.com/uc?id=1fA5eHtk9w-wXX3RgjM5iwy1b4P3OSXxd"
-    gdown.download(url, model_path, quiet=False)
+
+file_id = "1fA5eHtk9w-wXX3RgjM5iwy1b4P3OSXxd"
+url = f"https://drive.google.com/uc?id={file_id}"
+output = "stroke_classification_model.h5"
+
+# Download the model file if it doesn't already exist
+import os
+if not os.path.exists(output):
+    gdown.download(url, output, quiet=False)
+
 
 # ✅ Load the trained model
 model = load_model(model_path)
